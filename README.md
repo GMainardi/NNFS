@@ -20,7 +20,7 @@ Enhance your understanding of how machine learning libraries like TensorFlow and
 To get started with this project, follow these simple steps:
 
 ```bash
-$ git clone [https://github.com/yourusername/yourproject.git](https://github.com/GMainardi/NNFS.git)
+$ git clone https://github.com/<yourusername>/NNFS.git
 $ cd NNFS
 $ pip install -r requirements.txt
 ```
