@@ -4,7 +4,7 @@ This project aims to deepen our understanding of neural networks by implementing
 
 ## Table of Contents
 
-- [Learning Goals](#Learning)
+- [Learning Goals](#learning_goals)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
