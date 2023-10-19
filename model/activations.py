@@ -15,11 +15,15 @@ class ReLU(Activation):
     self.inputs = inputs
     self.output = np.maximum(0, inputs)
 
+    return self.output
+
 
   def backward(self, dvalues):
 
     self.dinputs = dvalues.copy()
     self.dinputs[self.inputs <= 0] = 0
+
+    return self.dinputs
 
 class Softmax(Activation):
   
@@ -32,6 +36,8 @@ class Softmax(Activation):
                                             keepdims=True)
 
         self.output = probabilities
+
+        return self.output
 
     # not used, just for learning propouses
     def backward(self, dvalues):
@@ -47,3 +53,5 @@ class Softmax(Activation):
                                 np.dot(single_output, single_output.T)
 
             self.dinputs[index] = np.dot(jacobian_matrix, single_dvalues)
+
+        return self.dinputs

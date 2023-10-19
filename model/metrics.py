@@ -1,10 +1,21 @@
 import numpy as np
 
-def accuracy(y_hat, y_true):
+class Metric:
 
-    predictions = np.argmax(y_hat, axis=1)
+    def calculate(self, y_hat, y_true):
+        pass
+
+class Accuracy(Metric):
+
+    def calculate(self, y_hat, y_true):
+        
+        predictions = np.argmax(y_hat, axis=1)
+        
+        if len(y_true.shape) == 2:
+            y_true = np.argmax(y_true, axis=1)
+
+        self.results = np.mean(predictions == y_true)
+        return self.results
     
-    if len(y_true.shape) == 2:
-        y_true = np.argmax(y_true, axis=1)
-
-    return np.mean(predictions == y_true)
+    def __str__(self) -> str:
+        return f'acc: {self.results}'

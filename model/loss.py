@@ -43,8 +43,10 @@ class CategoricalCrossEntropy(Loss):
 
         self.dinputs = self.dinputs / samples
 
+        return self.dinputs
 
-class SoftmaxCategoricalCrossentropy():
+
+class SoftmaxCategoricalCrossentropy(Loss):
 
   def __init__(self):
     self.activation = Softmax()
@@ -58,7 +60,7 @@ class SoftmaxCategoricalCrossentropy():
     return self.loss.calculate(self.output, y_true)
 
   def backward(self, dvalues, y_true):
-
+  
     samples = len(dvalues)
 
     # turn into OHE
@@ -70,3 +72,5 @@ class SoftmaxCategoricalCrossentropy():
     self.dinputs[range(samples), y_true] -= 1 
 
     self.dinputs = self.dinputs / samples
+
+    return self.dinputs
